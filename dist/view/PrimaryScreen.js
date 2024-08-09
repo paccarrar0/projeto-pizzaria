@@ -5,41 +5,34 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const prompt_sync_1 = __importDefault(require("prompt-sync"));
 class PrimaryScreen {
-    constructor(pizzaController) {
+    constructor(pizzaController, _RegisterPizza, _RegisterSoda, sodaController) {
         this.prompt = (0, prompt_sync_1.default)();
         this.pizzaController = pizzaController;
+        this._RegisterPizza = _RegisterPizza;
+        this._RegisterSoda = _RegisterSoda;
+        this.sodaController = sodaController;
     }
     getFirstScreen() {
         let showScreen = false;
         while (!showScreen) {
-            // Get user input
-            //console.clear();
-            let choice = this.prompt("Escolha:\n1 - Cadastro Pizza\n2 - Listar\n3 - Sair");
+            let choice = this.prompt("Escolha:\n1 - Cadastro Pizza\n2 - Cadastro Refri\n3 - Cadastro Cliente\n4 - Cadastro Funcionário\n5 - Listar\n6 - Sair\n");
             switch (choice) {
                 case "1":
-                    //aqui pedimos uma instancia de FoodProduct para o controller
-                    let pizza = this.pizzaController.getNewPizza();
-                    this.registerFood(pizza);
+                    this._RegisterPizza.registerPizza();
                     break;
                 case "2":
-                    //console.clear();
-                    console.log(this.pizzaController.showPizza());
+                    this._RegisterSoda.registerSoda();
                     break;
-                case "3":
+                case "5":
+                    console.log(this.pizzaController.showPizza(), this.sodaController.showSoda());
+                    break;
+                case "6":
                     showScreen = true;
                     break;
                 default:
-                    //console.clear();
                     console.log("Invalid answer!");
             }
         }
-    }
-    registerFood(pizza) {
-        let name = this.prompt("Digite o nome da pizza");
-        pizza.setName(name);
-        //aqui requisito para o controller o registro da comida no BD
-        this.pizzaController.setNewPizza(pizza);
-        //this.pizzaController.listAllFoods();
     }
 }
 exports.default = PrimaryScreen;

@@ -7,20 +7,13 @@ const Product_1 = __importDefault(require("./Product"));
 class Soda extends Product_1.default {
     constructor() {
         super(...arguments);
-        this.zero = false;
-        this.brand = "";
+        this.light = false;
     }
-    setBrand(brand) {
-        this.brand = brand;
+    setLight(light) {
+        this.light = light;
     }
-    getBrand() {
-        return this.brand;
-    }
-    setZero(zero) {
-        this.zero = zero;
-    }
-    getZero() {
-        return this.zero;
+    getLight() {
+        return this.light;
     }
 }
 exports.default = Soda;

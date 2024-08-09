@@ -1,11 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Person {
-    constructor(name, cpf) {
+    constructor() {
         this.name = "";
-        this.cpf = 0;
-        this.name = name;
-        this.cpf = cpf;
+        this.cpf = "";
     }
     getName() {
         return this.name;

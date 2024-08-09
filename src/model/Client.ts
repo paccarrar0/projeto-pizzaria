@@ -8,7 +8,7 @@ export default class Client extends Person{
     this.orders = orders;
   }
 
-  public getOrders(): number{
+  public getOrders(): number {
     return this.orders;
   }
 }

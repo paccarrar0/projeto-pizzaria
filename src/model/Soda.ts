@@ -2,22 +2,13 @@ import Product from "./Product";
 
 export default class Soda extends Product{
 
-  private zero: boolean = false;
-  private brand: string = "";
+  private light: boolean = false;
 
-  public setBrand(brand: string): void{
-    this.brand = brand;
+  public setLight(light: boolean): void{
+    this.light = light;
   }
 
-  public getBrand(): string{
-    return this.brand;
-  }
-
-  public setZero(zero: boolean): void{
-    this.zero = zero;
-  }
-
-  public getZero(): boolean{
-    return this.zero;
+  public getLight(): boolean{
+    return this.light;
   }
 }

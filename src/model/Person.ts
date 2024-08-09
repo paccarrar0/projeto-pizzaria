@@ -1,18 +1,13 @@
-export default class Person{
+export default abstract class Person{
 
   private name: string = "";
-  private cpf: number = 0;
-  
-  constructor(name: string, cpf: number){
-    this.name = name;
-    this.cpf = cpf;
-  }
+  private cpf: string = "";
 
   public getName(): string{
     return this.name;
   }
 
-  public getCpf(): number{
+  public getCpf(): string{
     return this.cpf;
   }
 
@@ -20,7 +15,7 @@ export default class Person{
     this.name = name;
   }
 
-  public setCpf(cpf: number){
+  public setCpf(cpf: string){
     this.cpf = cpf;
   }
 }

@@ -2,21 +2,23 @@ import Product from "./Product";
 
 export default class Pizza extends Product{
   
-  private flavor: string = "";
   private description: string = "";
+  private ingredients: string[] = [];
 
-  public setFlavor(flavor: string): void{
-    this.flavor = flavor;
+  
+  public setIngredients(ingredients: string[]): void{
+    this.ingredients = ingredients;
   }
 
   public setDescription(description: string): void{
     this.description = description;
   }
 
-  public getFlavor(): string{
-    return this.flavor;
+  
+  public getingredients(): string[]{
+    return this.ingredients;
   }
-
+  
   public getDescription(): string{
     return this.description;
   }

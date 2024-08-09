@@ -1,14 +1,14 @@
-export default class Product{
+export default abstract class Product{
 
-  private size: number = 0;
+  private size: string = "";
   private name: string = "";
   private price: number = 0;
 
-  public setSize(size: number): void{
+  public setSize(size: string): void{
     this.size = size;
   }
 
-  public getSize(): number{
+  public getSize(): string{
     return this.size;
   }
 

@@ -7,17 +7,17 @@ const Product_1 = __importDefault(require("./Product"));
 class Pizza extends Product_1.default {
     constructor() {
         super(...arguments);
-        this.flavor = "";
         this.description = "";
+        this.ingredients = [];
     }
-    setFlavor(flavor) {
-        this.flavor = flavor;
+    setIngredients(ingredients) {
+        this.ingredients = ingredients;
     }
     setDescription(description) {
         this.description = description;
     }
-    getFlavor() {
-        return this.flavor;
+    getingredients() {
+        return this.ingredients;
     }
     getDescription() {
         return this.description;
