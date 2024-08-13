@@ -7,13 +7,20 @@ const Person_1 = __importDefault(require("./Person"));
 class Client extends Person_1.default {
     constructor() {
         super(...arguments);
-        this.orders = 0;
+        this.orders = [];
     }
-    setOrders(orders) {
-        this.orders = orders;
+    setOrder(value) {
+        this.orders.push(value);
     }
     getOrders() {
         return this.orders;
+    }
+    getTotalMovedMoney() {
+        const sum = this.orders.reduce((total, order) => total + order, 0);
+        return sum;
+    }
+    getRole() {
+        return "Client";
     }
 }
 exports.default = Client;

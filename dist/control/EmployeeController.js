@@ -19,5 +19,13 @@ class EmployeeController {
         employee.setSector(sector);
         this.dataBase.addEmployee(employee);
     }
+    setSale(cpf, sale) {
+        this.dataBase.addSale(cpf, sale);
+    }
+    getMoneyMoved(cpf) {
+        let employees = this.dataBase.listEmployee();
+        let employee = employees[this.dataBase.getEmployeeIndex(cpf)];
+        console.log(employee.getTotalMovedMoney());
+    }
 }
 exports.default = EmployeeController;

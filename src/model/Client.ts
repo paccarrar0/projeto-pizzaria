@@ -1,14 +1,23 @@
+
 import Person from "./Person";
 
-export default class Client extends Person{
+export default class Client extends Person {
+  private orders: number[] = [];
 
-  private orders: number = 0;
-
-  public setOrders(orders: number): void{
-    this.orders = orders;
+  public setOrder(value: number): void {
+    this.orders.push(value);
   }
 
-  public getOrders(): number {
+  public getOrders(): number[] {
     return this.orders;
+  }
+
+  public getTotalMovedMoney(): number {
+    const sum: number = this.orders.reduce((total, order) => total + order, 0);
+    return sum;
+  }
+
+  public getRole(): string {
+    return "Client";
   }
 }

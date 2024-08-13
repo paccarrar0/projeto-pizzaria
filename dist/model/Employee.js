@@ -8,7 +8,7 @@ class Employee extends Person_1.default {
     constructor() {
         super(...arguments);
         this.sector = "";
-        this.sales = 0;
+        this.sales = [];
     }
     setSector(sector) {
         this.sector = sector;
@@ -16,11 +16,18 @@ class Employee extends Person_1.default {
     getSector() {
         return this.sector;
     }
-    setSales(sales) {
-        this.sales = sales;
+    setSale(value) {
+        this.sales.push(value);
     }
     getSales() {
         return this.sales;
+    }
+    getTotalMovedMoney() {
+        const sum = this.sales.reduce((total, sale) => total + sale, 0);
+        return sum;
+    }
+    getRole() {
+        return "Employee";
     }
 }
 exports.default = Employee;

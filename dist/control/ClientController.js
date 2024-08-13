@@ -18,5 +18,13 @@ class ClientController {
         client.setCpf(cpf);
         this.dataBase.addClient(client);
     }
+    setOrder(cpf, order) {
+        this.dataBase.addOrder(cpf, order);
+    }
+    getMoneyMoved(cpf) {
+        let clients = this.dataBase.listClient();
+        let client = clients[this.dataBase.getClientIndex(cpf)];
+        console.log(client.getTotalMovedMoney());
+    }
 }
 exports.default = ClientController;

@@ -1,7 +1,7 @@
 import PizzaController from "../control/PizzaController";
 import PromptSync from "prompt-sync";
 
-export default class RegisterPizza {
+export default class ManagePizza {
   private _PizzaController: PizzaController;
   private prompt = PromptSync();
 
@@ -28,6 +28,16 @@ export default class RegisterPizza {
     let ingredients: string[] = this.collectIngredients();
 
     this._PizzaController.registerPizza(name, size, price, ingredients, description);
+  }
+
+  public removePizza(): void{
+    let pizzaToRemove: string = this.prompt("Digite o nome da pizza a ser removida: ");
+    
+    if(!this._PizzaController.removePizza(pizzaToRemove)){
+      console.log("\nNome informado não encontrado\n");
+    }else{
+      console.log("\nPizza removida com sucesso\n");
+    }
   }
 }
 

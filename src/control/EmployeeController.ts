@@ -17,4 +17,15 @@ export default class EmployeeController {
 
     this.dataBase.addEmployee(employee);
   }
+
+  public setSale(cpf: string, sale: number): void{
+    this.dataBase.addSale(cpf, sale);
+  }
+
+  public getMoneyMoved(cpf: string): void{
+    let employees: Employee[] = this.dataBase.listEmployee();
+    let employee: Employee = employees[this.dataBase.getEmployeeIndex(cpf)];
+
+    console.log(employee.getTotalMovedMoney());
+  }
 }

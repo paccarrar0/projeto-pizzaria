@@ -36,6 +36,35 @@ export default class DataBase {
     this.employeeList.push(employee);
   }
 
+  public removePizza(name: string): boolean{
+    const Index: number = this.pizzaList.findIndex(pizza => pizza.getName() === name)
+
+    if(Index !== -1) {
+      this.pizzaList.splice(Index, 1);
+      return true;
+    }
+    return false;
+  }
+
+  public getEmployeeIndex(cpf: string){
+    const Index: number = this.employeeList.findIndex(employee => employee.getCpf() === cpf);
+    return Index;
+  }
+
+  public addSale(cpf: string, sale: number): void{
+    this.employeeList[this.getEmployeeIndex(cpf)].setSale(sale);
+  }
+
+  public getClientIndex(cpf: string){
+    const Index: number = this.clientList.findIndex(client => client.getCpf() === cpf);
+    return Index;
+  }
+
+  public addOrder(cpf: string, order: number): void{
+    this.clientList[this.getClientIndex(cpf)].setOrder(order)
+
+  }
+
   public listPizza(): Pizza[]{
     return this.pizzaList;
   }

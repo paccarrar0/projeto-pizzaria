@@ -14,7 +14,7 @@ export default class PizzaController{
     pizza.setName(name);
     pizza.setSize(size);
     pizza.setPrice(price);
-    pizza.setIngredients(ingredients)
+    pizza.setIngredients(ingredients);
 
     if(description == ""){
       pizza.setDescription("Não informado");
@@ -23,5 +23,10 @@ export default class PizzaController{
     }
     
     this.dataBase.addPizza(pizza);
+  }
+
+  public removePizza(name: string): boolean {
+    let removedOrNot: boolean = this.dataBase.removePizza(name);
+    return removedOrNot;
   }
 }

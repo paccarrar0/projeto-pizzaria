@@ -4,29 +4,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const prompt_sync_1 = __importDefault(require("prompt-sync"));
+const ManageProduct_1 = __importDefault(require("./ManageProduct"));
+const ManagePerson_1 = __importDefault(require("./ManagePerson"));
 class PrimaryScreen {
-    constructor(pizzaController, _RegisterPizza, _RegisterSoda, sodaController) {
+    constructor(_ManagePizza, _ManageSoda, _ManageEmployee, _ManageClient, pizzaController, sodaController, employeeController, clientController) {
         this.prompt = (0, prompt_sync_1.default)();
+        this._ManagePizza = _ManagePizza;
+        this._ManageSoda = _ManageSoda;
+        this._ManageEmployee = _ManageEmployee;
+        this._ManageClient = _ManageClient;
         this.pizzaController = pizzaController;
-        this._RegisterPizza = _RegisterPizza;
-        this._RegisterSoda = _RegisterSoda;
         this.sodaController = sodaController;
+        this.employeeController = employeeController;
+        this.clientController = clientController;
     }
     getFirstScreen() {
+        let _ManageProduct = new ManageProduct_1.default(this.pizzaController, this._ManagePizza, this._ManageSoda, this.sodaController);
+        let _ManagePerson = new ManagePerson_1.default(this._ManageClient, this._ManageEmployee, this.employeeController, this.clientController);
         let showScreen = false;
         while (!showScreen) {
-            let choice = this.prompt("Escolha:\n1 - Cadastro Pizza\n2 - Cadastro Refri\n3 - Cadastro Cliente\n4 - Cadastro Funcionário\n5 - Listar\n6 - Sair\n");
+            let choice = this.prompt("Escolha:\n1 - Gerenciar Produtos\n2 - Gerenciar Pessoas\n3 - Sair\n");
             switch (choice) {
                 case "1":
-                    this._RegisterPizza.registerPizza();
+                    console.clear();
+                    _ManageProduct.manageProductScreen();
                     break;
                 case "2":
-                    this._RegisterSoda.registerSoda();
+                    console.clear();
+                    _ManagePerson.managePersonScreen();
                     break;
-                case "5":
-                    console.log(this.pizzaController.showPizza(), this.sodaController.showSoda());
-                    break;
-                case "6":
+                case "3":
                     showScreen = true;
                     break;
                 default:

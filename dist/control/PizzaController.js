@@ -26,5 +26,9 @@ class PizzaController {
         }
         this.dataBase.addPizza(pizza);
     }
+    removePizza(name) {
+        let removedOrNot = this.dataBase.removePizza(name);
+        return removedOrNot;
+    }
 }
 exports.default = PizzaController;
