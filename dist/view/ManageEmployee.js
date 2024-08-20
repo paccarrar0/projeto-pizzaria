@@ -17,12 +17,28 @@ class ManageEmployee {
     }
     registerSale() {
         let employee = this.prompt("Insira o CPF do funcionário: ");
-        let sale = Number(this.prompt("Insira o valor da venda: ")); //Tratar a entrada de não números
-        this._EmployeeController.setSale(employee, sale);
+        let sale;
+        try {
+            let saleInput = this.prompt("Insira o valor da venda: ");
+            sale = Number(saleInput);
+            if (isNaN(sale)) {
+                throw new Error("Valor inserido não é numérico.");
+            }
+            this._EmployeeController.setSale(employee, sale);
+        }
+        catch (error) {
+            if (error instanceof Error) {
+                console.error("Erro: " + error.message);
+            }
+            else {
+                console.error("Erro desconhecido: ", error);
+            }
+            console.log("Por favor, insira um valor numérico válido.");
+        }
     }
     getMoneyMoved() {
         let cpf = this.prompt("Insira o cpf do funcionário: ");
-        this._EmployeeController.getMoneyMoved(cpf);
+        console.log(this._EmployeeController.getMoneyMoved(cpf));
     }
 }
 exports.default = ManageEmployee;

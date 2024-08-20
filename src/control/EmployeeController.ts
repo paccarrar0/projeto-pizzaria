@@ -22,10 +22,10 @@ export default class EmployeeController {
     this.dataBase.addSale(cpf, sale);
   }
 
-  public getMoneyMoved(cpf: string): void{
+  public getMoneyMoved(cpf: string): number{
     let employees: Employee[] = this.dataBase.listEmployee();
     let employee: Employee = employees[this.dataBase.getEmployeeIndex(cpf)];
 
-    console.log(employee.getTotalMovedMoney());
+    return employee.getTotalMovedMoney();
   }
 }

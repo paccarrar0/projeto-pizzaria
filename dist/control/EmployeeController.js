@@ -25,7 +25,7 @@ class EmployeeController {
     getMoneyMoved(cpf) {
         let employees = this.dataBase.listEmployee();
         let employee = employees[this.dataBase.getEmployeeIndex(cpf)];
-        console.log(employee.getTotalMovedMoney());
+        return employee.getTotalMovedMoney();
     }
 }
 exports.default = EmployeeController;

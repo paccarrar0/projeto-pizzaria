@@ -16,12 +16,28 @@ class ManageClient {
     }
     registerOrder() {
         let cpf = this.prompt("Insira o CPF do cliente: ");
-        let order = Number(this.prompt("Insira o valor da compra: ")); //Tratar entrada não numérica
-        this._ClientController.setOrder(cpf, order);
+        let order;
+        try {
+            let orderInput = this.prompt("Insira o valor da compra: ");
+            order = Number(orderInput);
+            if (isNaN(order)) {
+                throw new Error("Valor inserido não é numérico.");
+            }
+            this._ClientController.setOrder(cpf, order);
+        }
+        catch (error) {
+            if (error instanceof Error) {
+                console.error("Erro: " + error.message);
+            }
+            else {
+                console.error("Erro desconhecido: ", error);
+            }
+            console.log("Por favor, insira um valor numérico válido.");
+        }
     }
     getMoneyMoved() {
         let cpf = this.prompt("Insira o cpf do cliente: ");
-        this._ClientController.getMoneyMoved(cpf);
+        console.log(this._ClientController.getMoneyMoved(cpf));
     }
 }
 exports.default = ManageClient;

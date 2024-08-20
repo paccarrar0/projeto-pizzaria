@@ -21,10 +21,10 @@ export default class ClientController {
     this.dataBase.addOrder(cpf, order);
   }
 
-  public getMoneyMoved(cpf: string): void{
+  public getMoneyMoved(cpf: string): number{
     let clients: Client[] = this.dataBase.listClient();
     let client: Client = clients[this.dataBase.getClientIndex(cpf)];
 
-    console.log(client.getTotalMovedMoney());
+    return client.getTotalMovedMoney();
   }
 }

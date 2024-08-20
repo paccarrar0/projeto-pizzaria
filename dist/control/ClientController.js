@@ -24,7 +24,7 @@ class ClientController {
     getMoneyMoved(cpf) {
         let clients = this.dataBase.listClient();
         let client = clients[this.dataBase.getClientIndex(cpf)];
-        console.log(client.getTotalMovedMoney());
+        return client.getTotalMovedMoney();
     }
 }
 exports.default = ClientController;
