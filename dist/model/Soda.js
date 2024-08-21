@@ -15,5 +15,12 @@ class Soda extends Product_1.default {
     getLight() {
         return this.light;
     }
+    setPrice(price) {
+        let finalPrice = price;
+        if (this.getSize() == "3L") {
+            finalPrice = price - (price * 0.05);
+        }
+        super.setPrice(finalPrice);
+    }
 }
 exports.default = Soda;

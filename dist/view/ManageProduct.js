@@ -39,7 +39,7 @@ class ManageProduct {
                     showScreen = true;
                     break;
                 default:
-                    console.log("Invalid answer!");
+                    console.log("Selecione uma opção válida!");
             }
         }
     }
